@@ -11,9 +11,7 @@
     <!-- SonarCloud Configuration -->
     <sonar.projectKey>mkpel_coba-kode-inspection</sonar.projectKey>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <properties>
     <sonar.organization>mkpel</sonar.organization>
-</properties>
   </properties>
 
   <dependencies>
