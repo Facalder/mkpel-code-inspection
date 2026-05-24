@@ -28,4 +28,4 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Note: Sonar generally expects GITHUB_TOKEN for PR decoration
-      run: mvn clean verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=MKPEL -Dsonar.projectKey=caldera-mkpel-continous-inspection
+      run: mvn clean verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=mkpel -Dsonar.projectKey=mkpel_coba-kode-inspection
