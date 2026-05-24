@@ -16,14 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    
+    - name: Set up JDK 17 for SonarCloud Analysis
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '17' # Upgraded from '11' to meet SonarCloud runner requirements
         distribution: 'temurin'
         cache: maven
+        
     - name: Build, test, and analyze
       env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
-      run: mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=MKPEL -Dsonar.projectKey=caldera-mkpel-continous-inspection
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Note: Sonar generally expects GITHUB_TOKEN for PR decoration
+      run: mvn clean verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=MKPEL -Dsonar.projectKey=caldera-mkpel-continous-inspection
